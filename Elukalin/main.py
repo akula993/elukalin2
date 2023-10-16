@@ -1,5 +1,6 @@
 import logging
 
+import win32api
 from fpdf import FPDF
 import flet as ft
 from flet import (
@@ -19,9 +20,10 @@ c_handler.setLevel(logging.WARNING)
 c_handler.setFormatter(logging.Formatter('%(name)s - %(levelname)s - %(message)s'))
 
 logger.addHandler(c_handler)
-
+_AppName_ = 'Elukalin'
 
 def main(page: ft.Page):
+
     page.title = 'Этикетка ELUKALIN'  # Название
     page.theme_mode = ft.ThemeMode.DARK
     page.padding = 50
@@ -31,6 +33,9 @@ def main(page: ft.Page):
     page.window_resizable = False  # размер окна не поддается изменению
 
     page.update()
+    # Менеджер обновления
+    def install_update():
+        pass
     # Добавление картинки
     img = ft.Image(src=f'assets/images/Logo_EUKALIN.jpg', fit=ft.ImageFit.CONTAIN)
     page.add(img)
