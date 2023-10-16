@@ -12,7 +12,7 @@ from flet import (
     Text,
     icons,
 )
-
+update_url = 'https://github.com/akula993/elukalin2/blob/master/Elukalin/version.txt'
 logger = logging.getLogger(__name__)
 c_handler = logging.FileHandler('log1.log')
 c_handler.setLevel(logging.WARNING)
@@ -36,6 +36,18 @@ def main(page: ft.Page):
     # Менеджер обновления
     def install_update():
         pass
+        # with requests.get(update_url+'updates/MyTestApp.msi?raw=true')
+    # def start_update_manager():
+    #             with requests.get('https://github.com/vsantiago113/Tkinter-MyTestApp/raw/master/'
+    #                               'updates/MyTestApp.msi?raw=true', stream=True) as r:
+    #                 self.progressbar['maximum'] = int(r.headers.get('Content-Length'))
+    #                 r.raise_for_status()
+    #                 with open(f'./tmp/{_AppName_}.msi', 'wb') as f:
+    #                     for chunk in r.iter_content(chunk_size=4096):
+    #                         if chunk:  # filter out keep-alive new chunks
+    #                             f.write(chunk)
+    #                             self.progressbar['value'] += 4096
+    #             self.button1.config(text='Install', state=tk.NORMAL)
     # Добавление картинки
     img = ft.Image(src=f'assets/images/Logo_EUKALIN.jpg', fit=ft.ImageFit.CONTAIN)
     page.add(img)
